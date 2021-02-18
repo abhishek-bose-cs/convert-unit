@@ -1,22 +1,20 @@
 # Convert-Units
 
-This projects will perform unit conversion to SI from their “widely used” counterparts.
+This project will perform unit conversion to SI from their “widely used” counterparts.
 
 ## Description:
- - This project takes non-SI unit as an input parameter e.g. `(degree/minute)` and convert to a valid SI equivalent `(rad/s)`.
- - It also compute the mutiplication factor(17 digit after the decimal point) that is involved in the SI conversion.
+ - This project takes a non-SI unit as an input parameter e.g. `(degree/minute)` and converts it to a valid SI equivalent `(rad/s)`.
+ - It also computes the multiplication factor(17 digits after the decimal point) that is involved in the SI conversion.
   ### **Code Logic**: 
-  - The code first parse the input expression and fetch all the non SI unit into a list.
-  - Then it replace the parsed unit into the SI equivalent thet is defined in local table (INPUT_TO_SI).
-  - It generate the mutiplication factor by replacing the parsed unit into the respective SI converted value and form an expression.
+  - The code first parse the input expression and fetch all the non-SI unit into a list.
+  - Then it replaces the parsed unit with the SI equivalent that is defined in the local table (INPUT_TO_SI).
+  - It generates the multiplication factor by replacing the parsed unit into the respective SI converted value and form an expression.
   - The expression is evaluated at a later stage to generate the multiplication factor.
   ### **Edge Cases**:
   - Checks if the input is empty. Error Code: 'Input is empty'
-  - Checks for invalid arithmatic operator e.g. `-`,`+`,`%`,`**`. Error Code: 'Invalid arithmatic operator in input'
+  - Checks for invalid arithmetic operator e.g. `-`,`+`,`%`,`**`. Error Code: 'Invalid arithmetic operator in input'
   - Check if the input unit is valid and if it present in our scope. e.g. `kilometer`, Error Code: 'kilometer is not a valid input unit'
   - Check if the expression is valid or not. e.g. `(degree/minute/)` is an invalid expression, Error Code: 'Cannot evaluate an invalid expression'
-  ### **Time Complexity**:
-  - The code hase a liner time complexity O(n) where n is the number of character in the input string.
 
 ## Prerequisite: 
 - Make sure **Docker** is installed.
@@ -27,7 +25,7 @@ This projects will perform unit conversion to SI from their “widely used” co
 
 ## Install (using Docker):
 
-1. Once the repository is pulled from github. `cd` into the `convert-units` directory using Terminal (Mac) or Power shell (Windows).
+1. Once the repository is pulled from GitHub. `cd` into the `convert-units` directory using Terminal (Mac) or Power shell (Windows).
 
 2. build the docker image
   - if you're on a mac run 
@@ -44,7 +42,7 @@ This projects will perform unit conversion to SI from their “widely used” co
      - `--rm` removes the container when the process is stopped
      - `-it` enables tty so you can interact with the docker container with your terminal. To run in detached use option `-d` in place of `-it`
      - `-p 5000:5000` maps your local machine's port 5000 to the docker containers port 5000
-     - `convert-unit:latest` is the image name we just created with tag `latest` which manatain the image version
+     - `convert-unit:latest` is the image name we just created with the tag `latest` which maintain the image version
 
 ## Optional: Run automation Test (using pytest):
 
